@@ -13,10 +13,25 @@
       width: 26px;
       height: 2px;
       background-color: $darkGrey;
+      transition: all 300ms ease-in-out;
+      transform-origin: left center;
 
       &:not(:last-child) {
-        margin-bottom: 3px;
+        margin-bottom: 5px;
       }
+    }
+  }
+
+  &__open {
+    > span:first-child {
+      transform: rotate(45deg);
+    }
+    > span:nth-child(2) {
+      opacity: 0;
+    }
+
+    > span:last-child {
+      transform: rotate(-45deg);
     }
   }
   &__links {
