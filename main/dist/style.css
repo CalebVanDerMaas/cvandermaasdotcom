@@ -79,6 +79,68 @@ button,
   }
 }
 
+.video-bg {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+:root {
+  --theme-bg-color: rgba(16 18 27 / 40%);
+  --border-color: rgba(113 119 144 / 25%);
+  --theme-color: #f9fafb;
+  --inactive-color: rgb(113 119 144 / 78%);
+}
+
+.app {
+  position: fixed;
+  z-index: 950;
+  background-color: var(--theme-bg-color);
+  max-width: 1250px;
+  max-height: 860px;
+  height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 14px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  padding: 0 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.header {
+  position: relative;
+  z-index: 1000;
+}
+
 .header nav {
   padding: 24px;
 }
@@ -90,8 +152,8 @@ button,
   background-color: #4c4c4c;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-  -webkit-transform-origin: left center;
-          transform-origin: left center;
+  -webkit-transform-origin: 3px 1px;
+          transform-origin: 3px 1px;
 }
 
 .header__menu > span:not(:last-child) {

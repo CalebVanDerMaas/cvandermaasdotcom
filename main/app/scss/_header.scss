@@ -1,4 +1,7 @@
 .header {
+  position: relative;
+  z-index: 1000;
+
   &__logo {
   }
 
@@ -14,7 +17,7 @@
       height: 2px;
       background-color: $darkGrey;
       transition: all 300ms ease-in-out;
-      transform-origin: left center;
+      transform-origin: 3px 1px;
 
       &:not(:last-child) {
         margin-bottom: 5px;
@@ -76,4 +79,15 @@
       opacity: 0.75;
     }
   }
+
+  // .overlay {
+  //   position: absolute;
+  //   top: 0px;
+  //   bottom: 0px;
+  //   right: 0px;
+  //   left: 0px;
+
+  //   background-color: $darkGrey;
+  //   background-image: linear-gradient($darkGrey $lightGrey)
+  // }
 }

@@ -9,6 +9,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/dist/style.css">
 
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+        
+        
+
         <title>Title | Title 2</title>
 
         <style>
@@ -17,6 +23,7 @@
         </style>
 
     </head>
+    
     <body>
         
         <header class="header">
@@ -46,14 +53,36 @@
             </nav>
             
         </header>
-        <!-- <div class="video-bg">
 
+        <!-- GLASS PANEL AND LIVE BG DEMO -->
+        
+        
+        <div id="videoBG" class="video-bg">
+            <!-- <video width="320" height="240" autoplay loop muted>
+                <source src="https://assets.codepen.io/3364143/7btrrd.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+              </video> -->
+        
         </div>
-        <div class="dark-light">
-            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-             <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" /></svg>
-        </div> -->
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac auctor magna, accumsan lobortis tellus. Donec posuere, ipsum in bibendum commodo, dolor lectus scelerisque ipsum, ultricies bibendum ipsum nulla in turpis. Nulla facilisi. Aenean tincidunt neque sed lacinia sodales. Vivamus consectetur ultricies rhoncus. Aliquam ullamcorper mauris orci, vel dictum tortor rutrum ac. Ut id nunc in arcu consequat egestas a nec nunc.
+        <script>
+            VANTA.FOG({
+            el: document.getElementById('videoBG'),
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00
+            })
+            </script>
+        <script>
+            // document.getElementById('videoBG').style.backgroundColor = "red";
+            
+        </script>
+        
+        
+        
+        <div class="app">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac auctor magna, accumsan lobortis tellus. Donec posuere, ipsum in bibendum commodo, dolor lectus scelerisque ipsum, ultricies bibendum ipsum nulla in turpis. Nulla facilisi. Aenean tincidunt neque sed lacinia sodales. Vivamus consectetur ultricies rhoncus. Aliquam ullamcorper mauris orci, vel dictum tortor rutrum ac. Ut id nunc in arcu consequat egestas a nec nunc.
 
 Ut id nibh quam. Etiam luctus diam in est sollicitudin, et elementum tellus ullamcorper. Integer at efficitur erat. Pellentesque sagittis, arcu a faucibus aliquam, mauris elit ultricies diam, auctor tincidunt eros lacus eu tortor. Quisque magna orci, porta accumsan ligula id, pharetra luctus libero. Curabitur fermentum nisl purus, ut suscipit lorem elementum efficitur. Phasellus vulputate hendrerit neque nec rhoncus. Aenean ultricies sagittis eros sed varius. In eget dolor sapien. In cursus mi at iaculis dapibus. Pellentesque dolor elit, facilisis a congue eget, posuere sit amet magna.
 
@@ -64,6 +93,14 @@ Sed odio nunc, suscipit vitae erat eu, ultrices tincidunt nisl. Vivamus sceleris
 Donec quis volutpat magna. Vivamus eu feugiat est. Pellentesque in tellus ut leo vehicula tempor. Vivamus malesuada lectus ut turpis aliquam, ac scelerisque arcu pulvinar. Etiam dui ipsum, fermentum vitae tellus vel, ullamcorper congue tellus. Aliquam pellentesque in justo vitae ullamcorper. Nunc lobortis ligula a sagittis ornare. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 
+    
+        </div>
+        
+
+        
+        
+        
         <script src="/app/js/script.js"></script>
+        
     </body>
 </html>

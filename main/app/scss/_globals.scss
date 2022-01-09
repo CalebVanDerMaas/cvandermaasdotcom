@@ -73,3 +73,61 @@ button,
     display: none;
   }
 }
+//Video BG
+
+.video-bg {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+
+  // position: fixed;
+  // z-index: 900;
+  // right: 0;
+  // top: 0;
+  // width: 600px;
+  // height: 360px;
+
+  // video {
+  //   width: 100%;
+  //   height: 100%;
+  //   object-fit: cover;
+  // }
+}
+
+//Glass panel
+:root {
+  --theme-bg-color: rgba(16 18 27 / 40%);
+  --border-color: rgba(113 119 144 / 25%);
+  --theme-color: #f9fafb;
+  --inactive-color: rgb(113 119 144 / 78%);
+}
+
+.app {
+  position: fixed;
+  z-index: 950;
+  background-color: var(--theme-bg-color);
+  max-width: 1250px;
+  max-height: 860px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 14px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
