@@ -76,7 +76,7 @@ button,
 //Video BG - Controls live BG
 
 .video-bg {
-  position: absolute;
+  position: fixed;
   z-index: -1;
   width: 100%;
   height: 100%;
@@ -92,9 +92,30 @@ button,
 }
 
 // .app refers to the glass bg
+// .app {
+//   position: relative;
+//   z-index: 1000;
+//   top: 6vh;
+//   //bottom: 10%;
+//   left: 5%;
+//   right: 5%;
+//   background-color: var(--theme-bg-color);
+//   //max-width: 1250px;
+//   //max-height: 860px;
+//   height: 75%;
+//   //width: 90%;
+//   display: flex;
+//   flex-direction: column;
+//   overflow: hidden;
+//   // width: 90%;
+//   border-radius: 14px;
+//   backdrop-filter: blur(1px);
+//   -webkit-backdrop-filter: blur(1px);
+//   font-size: 15px;
+//   font-weight: 500;
+// }
+
 .app {
-  position: fixed;
-  z-index: 950;
   background-color: var(--theme-bg-color);
   max-width: 1250px;
   max-height: 860px;

@@ -58,8 +58,8 @@ button,
   padding: 0.875rem 2.1875rem;
   font-family: "Varela Round", sans-serif;
   font-weight: 400;
-  background: -webkit-gradient(linear, left top, right top, from(#85c7f2), to(#b0d1e7));
-  background: linear-gradient(to right, #85c7f2, #b0d1e7);
+  background: -webkit-gradient(linear, left top, right top, from(#34a1ea), to(#b0d1e7));
+  background: linear-gradient(to right, #34a1ea, #b0d1e7);
   border-radius: 50px;
   border-color: #4c4c4c;
   border-width: thin;
@@ -80,7 +80,7 @@ button,
 }
 
 .video-bg {
-  position: absolute;
+  position: fixed;
   z-index: -1;
   width: 100%;
   height: 100%;
@@ -94,12 +94,15 @@ button,
 }
 
 .app {
-  position: fixed;
-  z-index: 950;
+  position: relative;
+  z-index: 1000;
+  top: 6vh;
+  bottom: 10%;
+  left: 5%;
+  right: 5%;
   background-color: var(--theme-bg-color);
-  max-width: 1250px;
-  max-height: 860px;
-  height: 90vh;
+  height: 75vh;
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -108,32 +111,11 @@ button,
       -ms-flex-direction: column;
           flex-direction: column;
   overflow: hidden;
-  width: 100%;
   border-radius: 14px;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
   font-size: 15px;
   font-weight: 500;
-}
-
-section {
-  width: 100%;
-  height: 100vh;
-  padding: 0 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
 }
 
 .header {
@@ -191,8 +173,8 @@ section {
   display: block;
   position: absolute;
   height: 5px;
-  background: -webkit-gradient(linear, left top, right top, from(#85c7f2), to(#b0d1e7));
-  background: linear-gradient(to right, #85c7f2, #b0d1e7);
+  background: -webkit-gradient(linear, left top, right top, from(#34a1ea), to(#b0d1e7));
+  background: linear-gradient(to right, #34a1ea, #b0d1e7);
   left: 0;
   right: 0;
   bottom: -30px;
@@ -202,7 +184,7 @@ section {
 }
 
 .header__links a:hover {
-  color: #85c7f2;
+  color: #34a1ea;
 }
 
 .header__links a:hover::before {
