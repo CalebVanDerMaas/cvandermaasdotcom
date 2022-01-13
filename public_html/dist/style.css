@@ -108,14 +108,44 @@ button,
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+      flex-direction: column;
   overflow: hidden;
   border-radius: 14px;
-  backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
   font-size: 15px;
   font-weight: 500;
+}
+
+.app-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.5fr 1.5fr;
+      grid-template-columns: 0.5fr 1.5fr;
+  -ms-grid-rows: 0.2fr 1.8fr;
+      grid-template-rows: 0.2fr 1.8fr;
+  gap: 0px 0px;
+      grid-template-areas: "app-nav app-nav" "app-header app-body";
+}
+
+.app-nav {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: app-nav;
+}
+
+.app-body {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: app-body;
+}
+
+.app-header {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: app-header;
 }
 
 .header {

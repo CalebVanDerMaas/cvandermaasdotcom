@@ -116,17 +116,51 @@ button,
 // }
 
 .app {
+  position: relative;
+  z-index: 1000;
+  top: 6vh;
+  bottom: 10%;
+  left: 5%;
+  right: 5%;
   background-color: var(--theme-bg-color);
-  max-width: 1250px;
-  max-height: 860px;
-  height: 90vh;
+  height: 75vh;
+  width: 90%;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   flex-direction: column;
   overflow: hidden;
-  width: 100%;
   border-radius: 14px;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(1px);
   font-size: 15px;
   font-weight: 500;
+
+  // &-container {
+  //   display: grid;
+  //   grid-template-columns: 0.5fr 1.5fr;
+  //   grid-template-rows: 0.2fr 1.8fr;
+  //   gap: 0px 0px;
+  //   grid-template-areas:
+  //     "app-header app-header"
+  //     "app-navigation app-body";
+  // }
+  &-container {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    grid-template-rows: 0.2fr 1.8fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "app-nav app-nav"
+      "app-header app-body";
+  }
+
+  &-nav {
+    grid-area: app-nav;
+  }
+  &-body {
+    grid-area: app-body;
+  }
+  &-header {
+    grid-area: app-header;
+  }
 }
