@@ -11,7 +11,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
       with:
-        server: giowm1036.siteground.biz
+        server: calebvandermaas.com
         username: vandercv@calebvandermaas.com
         password: ${{ secrets.FTP_DEPLOY_SECRET }}
         server-dir: /calebvandermaas.com/
