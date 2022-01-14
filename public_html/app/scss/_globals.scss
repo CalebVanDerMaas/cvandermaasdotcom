@@ -91,30 +91,6 @@ button,
   --inactive-color: rgb(113 119 144 / 78%);
 }
 
-// .app refers to the glass bg
-// .app {
-//   position: relative;
-//   z-index: 1000;
-//   top: 6vh;
-//   //bottom: 10%;
-//   left: 5%;
-//   right: 5%;
-//   background-color: var(--theme-bg-color);
-//   //max-width: 1250px;
-//   //max-height: 860px;
-//   height: 75%;
-//   //width: 90%;
-//   display: flex;
-//   flex-direction: column;
-//   overflow: hidden;
-//   // width: 90%;
-//   border-radius: 14px;
-//   backdrop-filter: blur(1px);
-//   -webkit-backdrop-filter: blur(1px);
-//   font-size: 15px;
-//   font-weight: 500;
-// }
-
 .app {
   position: relative;
   z-index: 1000;
@@ -135,15 +111,15 @@ button,
   font-size: 15px;
   font-weight: 500;
 
-  // &-container {
-  //   display: grid;
-  //   grid-template-columns: 0.5fr 1.5fr;
-  //   grid-template-rows: 0.2fr 1.8fr;
-  //   gap: 0px 0px;
-  //   grid-template-areas:
-  //     "app-header app-header"
-  //     "app-navigation app-body";
-  // }
+  &-container {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    grid-template-rows: 0.2fr 1.8fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "app-header app-header"
+      "app-nav app-body";
+  }
   &-container {
     display: grid;
     grid-template-columns: 0.5fr 1.5fr;
