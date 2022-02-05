@@ -12,10 +12,13 @@
         <!-- Must add /main/ parent directory on server for stylesheet href -->
         <link rel="stylesheet" href="/dist/style.css">
 
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
         <!-- imports libraries for Vanta live BG -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
-        
+        <script src="https://unpkg.com/embeddable-nfts/dist/nft-card.min.js"></script>
+        <script src="app/js/card.js"></script>
         <!-- Sets website title in tab & metadata -->
         <title>Title | Title 2</title>
     </head>
@@ -79,7 +82,12 @@
                   <p class="soft">HOPE TO SEE YOU AGAIN &lt&lt33</p>
                   <div class="push"></div>
                 </div>
-            <!-- <div id="glass-layer" class="app">
+
+                <div class="card sheep animated"></div>
+                <div class="card charizard animated"></div>
+
+                <style class="hover"></style>
+                <!-- <div id="glass-layer" class="app">
                 <div class="app-container">
                     <div class="app-nav">
                         <nav class="flex flex-jc-sb flex-ai-c">
@@ -190,6 +198,7 @@
             </ul>
             </footer>
             <script src="/app/js/script.js"></script> 
+            
 
         <!-- </content-pane> -->
     </body>
