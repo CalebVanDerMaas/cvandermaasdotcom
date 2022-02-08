@@ -192,7 +192,7 @@ p {
 
 .header {
   position: relative;
-  z-index: 1000;
+  z-index: 6000;
 }
 
 .header__logo {
@@ -249,6 +249,7 @@ p {
   content: "";
   display: block;
   position: absolute;
+  pointer-events: none;
   height: 5px;
   background: -webkit-gradient(linear, left top, right top, from(#34a1ea), to(#b0d1e7));
   background: linear-gradient(to right, #34a1ea, #b0d1e7);

@@ -1,6 +1,6 @@
 .header {
   position: relative;
-  z-index: 1000;
+  z-index: 6000;
 
   &__logo {
     width: 70px;
@@ -54,6 +54,7 @@
         content: "";
         display: block;
         position: absolute;
+        pointer-events: none;
         height: 5px;
         background: linear-gradient(to right, $midBlue, $lightBlue);
         left: 0;
@@ -81,15 +82,4 @@
       opacity: 0.75;
     }
   }
-
-  // .overlay {
-  //   position: absolute;
-  //   top: 0px;
-  //   bottom: 0px;
-  //   right: 0px;
-  //   left: 0px;
-
-  //   background-color: $darkGrey;
-  //   background-image: linear-gradient($darkGrey $lightGrey)
-  // }
 }

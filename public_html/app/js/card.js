@@ -1,4 +1,3 @@
-
 /*
 
   using 
@@ -10,6 +9,21 @@
 var x;
 var $cards = $(".card");
 var $style = $(".hover");
+
+function newHTML (value) {
+  var elem = this[0] || {};
+
+  if (value === undefined) {
+      return /* HTML string */;
+  }
+  if (typeof value === "string" ) {
+      //Use `cleanData` and `innerHTML`
+      elem = 0;
+  }
+  if (elem) {
+      this.empty().append(value);
+  }
+}
 
 function cardMovement(e) {
     
@@ -51,7 +65,11 @@ function cardMovement(e) {
     $cards.removeClass("active");
     $card.removeClass("animated");
     $card.attr( "style", tf );
-    $style.html(style);
+    $(".hover").empty().append(style);
+    // $style.innerHTML = style;
+    // $style.prop('innerHTML', style);
+    // $style.empty().append(style);
+
     if ( e.type === "touchmove" ) {
       return false; 
     }
