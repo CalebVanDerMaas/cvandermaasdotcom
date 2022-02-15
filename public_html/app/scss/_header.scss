@@ -28,6 +28,11 @@
   }
 
   &__open {
+
+    .overlay {
+      animation: fade-in 300ms ease-in-out forwards;
+    }
+
     > span:first-child {
       transform: rotate(45deg);
     }
@@ -82,4 +87,17 @@
       opacity: 0.75;
     }
   }
+}
+
+button,
+.button {
+  padding: 0.875rem 2.1875rem;
+  font-family: "Varela Round", sans-serif;
+  font-weight: 400;
+  background: $midBlue;
+  border-radius: 50px;
+  border-color: $darkGrey;
+  border-width: thin;
+  color: $dimGrey !important;
+  cursor: pointer;
 }
