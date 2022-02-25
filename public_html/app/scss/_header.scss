@@ -101,3 +101,114 @@ button,
   color: $dimGrey !important;
   cursor: pointer;
 }
+
+
+// TODO: Make glass panel look pretty... also maybe add a light mode?
+//Glass panel
+:root {
+  --theme-bg-color: rgba(16 18 27 / 40%);
+  --border-color: rgba(113 119 144 / 25%);
+  --theme-color: #f9fafb;
+  --inactive-color: rgb(113 119 144 / 78%);
+}
+
+
+.panel {
+ 
+  position: absolute;
+  z-index: 7000;
+  top: 6vh;
+  bottom: 10%;
+  left: 5%;
+  right: 5%;
+  background-color: var(--theme-bg-color);
+  height: 75vh;
+  width: 90%;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 14px;
+  backdrop-filter: blur(1px);
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0;
+  margin-top: 50px;
+  transition: opacity 300ms ease-in-out;
+  justify-content: center;
+
+  &__btn{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    height:100%;
+    margin: 20px;
+
+    a {
+
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      color: #FFF;
+      font: 24px sans-serif;
+      text-decoration: none;
+      // display: table-cell;
+      // text-align: ;
+      // align: middle;
+      // text-align: center;
+      // font-size: $font-med;
+      // color: $white;
+      // transition: color 300ms ease-in-out;
+      height: 100%;
+      // justify-content: center;
+      padding: 5%;
+      
+      
+
+      // &:not(:last-child) {
+      //   margin-bottom: 4rem;
+      // }
+
+    }
+  }
+
+  &__open{
+    .overlay {
+      animation: fade-in 300ms ease-in-out ;
+    }
+
+    opacity:100;
+  }
+
+  
+
+  &-container {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    grid-template-rows: 0.2fr 1.8fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "app-header app-header"
+      "app-nav app-body";
+  }
+  &-container {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    grid-template-rows: 0.2fr 1.8fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "app-nav app-nav"
+      "app-header app-body";
+  }
+
+  &-nav {
+    grid-area: app-nav;
+  }
+  &-body {
+    grid-area: app-body;
+  }
+  &-header {
+    grid-area: app-header;
+  }
+}

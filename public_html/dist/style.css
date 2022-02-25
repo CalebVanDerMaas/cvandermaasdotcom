@@ -72,13 +72,6 @@ a:hover {
   height: 100vh;
 }
 
-:root {
-  --theme-bg-color: rgba(16 18 27 / 40%);
-  --border-color: rgba(113 119 144 / 25%);
-  --theme-color: #f9fafb;
-  --inactive-color: rgb(113 119 144 / 78%);
-}
-
 .app {
   position: relative;
   z-index: 1000;
@@ -112,7 +105,7 @@ a:hover {
   -ms-grid-rows: 0.2fr 1.8fr;
       grid-template-rows: 0.2fr 1.8fr;
   gap: 0px 0px;
-      grid-template-areas: "app-header app-header" "app-nav app-body";
+      grid-template-areas: "app-header app-header" "app-nav app-body";
 }
 
 .app-container {
@@ -123,7 +116,7 @@ a:hover {
   -ms-grid-rows: 0.2fr 1.8fr;
       grid-template-rows: 0.2fr 1.8fr;
   gap: 0px 0px;
-      grid-template-areas: "app-nav app-nav" "app-header app-body";
+      grid-template-areas: "app-nav app-nav" "app-header app-body";
 }
 
 .app-nav {
@@ -207,6 +200,11 @@ p {
   margin-bottom: 5px;
 }
 
+.header__open .overlay {
+  -webkit-animation: fade-in 300ms ease-in-out forwards;
+          animation: fade-in 300ms ease-in-out forwards;
+}
+
 .header__open > span:first-child {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
@@ -279,6 +277,121 @@ button,
   border-width: thin;
   color: #636363 !important;
   cursor: pointer;
+}
+
+:root {
+  --theme-bg-color: rgba(16 18 27 / 40%);
+  --border-color: rgba(113 119 144 / 25%);
+  --theme-color: #f9fafb;
+  --inactive-color: rgb(113 119 144 / 78%);
+}
+
+.panel {
+  position: absolute;
+  z-index: 7000;
+  top: 6vh;
+  bottom: 10%;
+  left: 5%;
+  right: 5%;
+  background-color: var(--theme-bg-color);
+  height: 75vh;
+  width: 90%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  overflow: hidden;
+  border-radius: 14px;
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0;
+  margin-top: 50px;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.panel__btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  margin: 20px;
+}
+
+.panel__btn a {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #FFF;
+  font: 24px sans-serif;
+  text-decoration: none;
+  height: 100%;
+  padding: 5%;
+}
+
+.panel__open {
+  opacity: 100;
+}
+
+.panel__open .overlay {
+  -webkit-animation: fade-in 300ms ease-in-out;
+          animation: fade-in 300ms ease-in-out;
+}
+
+.panel-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.5fr 1.5fr;
+      grid-template-columns: 0.5fr 1.5fr;
+  -ms-grid-rows: 0.2fr 1.8fr;
+      grid-template-rows: 0.2fr 1.8fr;
+  gap: 0px 0px;
+      grid-template-areas: "app-header app-header" "app-nav app-body";
+}
+
+.panel-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.5fr 1.5fr;
+      grid-template-columns: 0.5fr 1.5fr;
+  -ms-grid-rows: 0.2fr 1.8fr;
+      grid-template-rows: 0.2fr 1.8fr;
+  gap: 0px 0px;
+      grid-template-areas: "app-nav app-nav" "app-header app-body";
+}
+
+.panel-nav {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: app-nav;
+}
+
+.panel-body {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: app-body;
+}
+
+.panel-header {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: app-header;
 }
 
 :root {
@@ -905,5 +1018,33 @@ li {
   margin: 0 auto;
   -ms-grid-columns: 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr;
       grid-template-columns: 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    display: non;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  to {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    display: non;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  to {
+    display: block;
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,4 +1,5 @@
 const btnHamburger = document.querySelector('#btnHamburger');
+const glassPanel = document.querySelector('#glass-layer');
 
 btnHamburger.addEventListener('click', function(){
     console.log('open hamburger');
@@ -9,6 +10,17 @@ btnHamburger.addEventListener('click', function(){
     else {
       btnHamburger.classList.add('header__open');
     }
+
+    if(glassPanel.classList.contains('panel__open')){
+      glassPanel.classList.remove('panel__open');
+    }
+    else {
+      glassPanel.classList.add('panel__open');
+    }
+
+
+
+
     
 });
 
