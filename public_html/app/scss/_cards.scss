@@ -20,19 +20,8 @@
 }
 
 .card {
-  width: 71.5vw;
-  height: 100vw;
-  // width: clamp(200px, 61vh, 18vw);
-  // height: clamp(280px, 85vh, 25.2vw);
-  @media screen and (min-width: 600px) {
-    // width: 61vh;
-    // height: 85vh;
-    // max-width: 500px;
-    // max-height: 700px;
-    width: clamp(13vw, 61vh, 20vw);
-    height: clamp(13vw, 85vh, 20vw);
-  }
-
+  width: clamp(25vw, 27vh, 30vw);
+  height: clamp(25vw, 27vh, 30vw);
   position: relative;
   overflow: hidden;
   margin: 20px;
@@ -423,4 +412,22 @@ p {
       animation-delay: 0.75s;
     }
   }
+}
+
+#card-holder {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#nft-home {
+  position: relative;
+  margin-top: 100px;
+  padding: 50px;
+}
+
+.nft_header{
+  position: relative;
+  display: inline-block;
 }

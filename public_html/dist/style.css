@@ -31,9 +31,9 @@ body {
 a,
 a:visited,
 a:hover {
-  font-family: "Varela Round", sans-serif;
+  font-family: 'syneextrabold';
   text-decoration: none;
-  color: #4c4c4c;
+  color: black;
 }
 
 .flex {
@@ -364,8 +364,8 @@ button,
 }
 
 .card {
-  width: 71.5vw;
-  height: 100vw;
+  width: clamp(25vw, 27vh, 30vw);
+  height: clamp(25vw, 27vh, 30vw);
   position: relative;
   overflow: hidden;
   margin: 20px;
@@ -388,13 +388,6 @@ button,
   background-position: 50% 50%;
   -webkit-transform-origin: center;
           transform-origin: center;
-}
-
-@media screen and (min-width: 600px) {
-  .card {
-    width: clamp(13vw, 61vh, 20vw);
-    height: clamp(13vw, 85vh, 20vw);
-  }
 }
 
 .card:hover {
@@ -887,6 +880,25 @@ p {
 .cards .card:nth-child(4), .cards .card:nth-child(4):before, .cards .card:nth-child(4):after {
   -webkit-animation-delay: 0.75s;
           animation-delay: 0.75s;
+}
+
+#card-holder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#nft-home {
+  position: relative;
+  margin-top: 100px;
+  padding: 50px;
+}
+
+.nft_header {
+  position: relative;
+  display: inline-block;
 }
 
 footer {
