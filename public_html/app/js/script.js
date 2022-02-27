@@ -24,8 +24,8 @@ btnHamburger.addEventListener('click', function(){
     
 });
 
-document
-  .querySelectorAll("a")
-  .forEach((el) => el.addEventListener("click"));
+// document
+//   .querySelectorAll("a")
+//   .forEach((el) => el.addEventListener("click", "boom"));
 
   
