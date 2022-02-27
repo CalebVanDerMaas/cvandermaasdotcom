@@ -101,8 +101,7 @@ loader.load(
 
 var render = function() {
     requestAnimationFrame(render);
-
-    faceLight.rotation
+    
     myFace.rotation.y -= .01;
 
     renderer.render(scene, camera);

@@ -11,6 +11,13 @@ html {
           box-sizing: inherit;
 }
 
+@font-face {
+  font-family: 'syneextrabold';
+  src: url("../fonts/syne-extrabold-webfont.woff2") format("woff2"), url("../fonts/syne-extrabold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -122,7 +129,7 @@ p {
   display: block;
   width: 26px;
   height: 2px;
-  background-color: #4c4c4c;
+  background-color: black;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
   -webkit-transform-origin: 3px 1px;
@@ -153,9 +160,10 @@ p {
 }
 
 .header__links a {
+  font-family: 'syneextrabold';
   position: relative;
   font-size: 0.875rem;
-  color: #4c4c4c;
+  color: black;
   -webkit-transition: color 300ms ease-in-out;
   transition: color 300ms ease-in-out;
 }
@@ -208,7 +216,7 @@ button,
   border-radius: 50px;
   border-color: #4c4c4c;
   border-width: thin;
-  color: #636363 !important;
+  color: black !important;
   cursor: pointer;
 }
 
@@ -267,11 +275,12 @@ button,
 }
 
 .panel__btn a {
+  font-family: 'syneextrabold';
   display: table-cell;
   vertical-align: middle;
   text-align: center;
   color: #FFF;
-  font: 24px sans-serif;
+  font: sans-serif;
   text-decoration: none;
   height: 100%;
   padding: 5%;
