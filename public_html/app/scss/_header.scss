@@ -28,7 +28,6 @@
   }
 
   &__open {
-
     .overlay {
       animation: fade-in 300ms ease-in-out forwards;
     }
@@ -44,9 +43,10 @@
       transform: rotate(-45deg);
     }
   }
+
   &__links {
     a {
-      font-family: 'syneextrabold';
+      font-family: "syneextrabold";
       position: relative;
       font-size: $font-sm;
       color: black;
@@ -54,28 +54,6 @@
 
       &:not(:last-child) {
         margin-right: 4rem;
-      }
-
-      &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        pointer-events: none;
-        height: 5px;
-        background: linear-gradient(to right, $midBlue, $lightBlue);
-        left: 0;
-        right: 0;
-        bottom: -30px;
-        opacity: 0;
-        transition: opacity 300ms ease-in-out;
-      }
-
-      &:hover {
-        color: $midBlue;
-
-        &::before {
-          opacity: 1;
-        }
       }
     }
   }
@@ -90,16 +68,47 @@
   }
 }
 
+.header__links ul {
+  display: block;
+  padding: 0;
+  position: relative;
+}
+
+.header__links ul li {
+  list-style-type: none;
+  display: inline-block;
+  &:not(:last-child) {
+    margin-right: 3rem;
+  }
+
+  text-align: center;
+}
+
+.header__links ul li a {
+  text-decoration: none;
+  text-rendering: geometricPrecision;
+  position: relative;
+  display: block;
+  line-height: 40px;
+  color: black;
+  transition: transform .3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  transform-origin: 50% 30%;
+}
+
+.header__links ul li a:hover {
+  transform: scale(1.3);
+  
+}
+
 button,
 .button {
   padding: 0.875rem 2.1875rem;
-  font-family: "Varela Round", sans-serif;
-  font-weight: 400;
-  background: $midBlue;
+  font-family: "syneextrabold";
+  background: black;
   border-radius: 50px;
   border-color: $darkGrey;
   border-width: thin;
-  color: black !important;
+  color: $white !important;
   cursor: pointer;
 }
 
@@ -112,7 +121,6 @@ button,
 }
 
 .panel {
- 
   position: absolute;
   z-index: 7000;
   top: 6vh;
@@ -136,19 +144,19 @@ button,
   transition: opacity 300ms ease-in-out;
   justify-content: center;
 
-  &__btn{
+  &__btn {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
-    height:100%;
+    height: 100%;
     margin: 20px;
 
     a {
-      font-family: 'syneextrabold';
+      font-family: "syneextrabold";
       display: table-cell;
       vertical-align: middle;
       text-align: center;
-      color: #FFF;
+      color: #fff;
       text-decoration: none;
       height: 100%;
       padding: 5%;
@@ -157,17 +165,16 @@ button,
     }
   }
 
-  &__open{
-
+  &__open {
     a {
       pointer-events: auto;
       cursor: pointer;
     }
 
     .overlay {
-      animation: fade-in 300ms ease-in-out ;
+      animation: fade-in 300ms ease-in-out;
     }
-    opacity:100;
+    opacity: 100;
   }
 
   &-container {

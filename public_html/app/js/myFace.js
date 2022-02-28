@@ -3,15 +3,7 @@ import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
 
 var nav = document.getElementById('top-nav').getBoundingClientRect();
 
-console.log(nav)
-
-
-
 var navHeight = nav.height;
-
-console.log(navHeight);
-
-
 
 var scene = new THREE.Scene();
 
@@ -19,8 +11,7 @@ var camera = new THREE.PerspectiveCamera(75, window.innerWidth/(window.innerHeig
 camera.position.z = 25;
 
 var renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
-// renderer.setClearColor("#DDDDDD");
-renderer.setSize(window.innerWidth, window.innerHeight - 79.45);
+renderer.setSize(window.innerWidth, window.innerHeight - (navHeight));
 
 document.body.appendChild(renderer.domElement);
 
@@ -86,22 +77,10 @@ loader.load(
 
 	}
 );
-// var myFace;
-
-// var mtlLoader = new THREE.MaterialLoader();;
-// mtlLoader.load('images/myFace.mtl', function(materials){
-//     materials.preload();
-
-//     var objLoader = new THREE.objLoader();
-//     objLoader.setMaterials(materials);
-//     objLoader.load('images/myFace.obj', function (object){
-//     scene.add(object);
-//     });
-// });
 
 var render = function() {
     requestAnimationFrame(render);
-    
+
     myFace.rotation.y -= .01;
 
     renderer.render(scene, camera);

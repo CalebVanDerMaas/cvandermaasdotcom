@@ -1,15 +1,39 @@
 @keyframes fade-in {
-    from {
-        display: non
-    }
+  from {
+    display: non;
+  }
 
-    1% {
-        display: block;
-        opacity: 0;
-    }
+  1% {
+    display: block;
+    opacity: 0;
+  }
 
-    to {
-        display: block;
-        opacity: 1;
-    }
+  to {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@keyframes bubbleLinksOpen {
+  from {
+    font-size: $font-med;
+  }
+  30% {
+    font-size: $font-sm;
+  }
+  40% {
+    font-size: $font-med;;
+  }
+  50% {
+    font-size: $font-sm;
+  }
+  65% {
+    font-size: $font-med;;
+  }
+  75% {
+    font-size: $font-sm;
+  }
+  to {
+    font-size: $font-med;;
+  }
 }

@@ -1,3 +1,79 @@
+@-webkit-keyframes fade-in {
+  from {
+    display: non;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  to {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    display: non;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  to {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes bubbleLinksOpen {
+  from {
+    font-size: 1.125rem;
+  }
+  30% {
+    font-size: 0.875rem;
+  }
+  40% {
+    font-size: 1.125rem;
+  }
+  50% {
+    font-size: 0.875rem;
+  }
+  65% {
+    font-size: 1.125rem;
+  }
+  75% {
+    font-size: 0.875rem;
+  }
+  to {
+    font-size: 1.125rem;
+  }
+}
+
+@keyframes bubbleLinksOpen {
+  from {
+    font-size: 1.125rem;
+  }
+  30% {
+    font-size: 0.875rem;
+  }
+  40% {
+    font-size: 1.125rem;
+  }
+  50% {
+    font-size: 0.875rem;
+  }
+  65% {
+    font-size: 1.125rem;
+  }
+  75% {
+    font-size: 0.875rem;
+  }
+  to {
+    font-size: 1.125rem;
+  }
+}
+
 html {
   font-size: 100%;
   -webkit-box-sizing: border-box;
@@ -22,7 +98,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.3;
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   font-family: "Varela Round", sans-serif;
   font-weight: 300;
   color: #dbdbdb;
@@ -161,7 +237,7 @@ p {
 }
 
 .header__links a {
-  font-family: 'syneextrabold';
+  font-family: "syneextrabold";
   position: relative;
   font-size: 0.875rem;
   color: black;
@@ -171,30 +247,6 @@ p {
 
 .header__links a:not(:last-child) {
   margin-right: 4rem;
-}
-
-.header__links a::before {
-  content: "";
-  display: block;
-  position: absolute;
-  pointer-events: none;
-  height: 5px;
-  background: -webkit-gradient(linear, left top, right top, from(#34a1ea), to(#b0d1e7));
-  background: linear-gradient(to right, #34a1ea, #b0d1e7);
-  left: 0;
-  right: 0;
-  bottom: -30px;
-  opacity: 0;
-  -webkit-transition: opacity 300ms ease-in-out;
-  transition: opacity 300ms ease-in-out;
-}
-
-.header__links a:hover {
-  color: #34a1ea;
-}
-
-.header__links a:hover::before {
-  opacity: 1;
 }
 
 .header__cta {
@@ -208,16 +260,51 @@ p {
   opacity: 0.75;
 }
 
+.header__links ul {
+  display: block;
+  padding: 0;
+  position: relative;
+}
+
+.header__links ul li {
+  list-style-type: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.header__links ul li:not(:last-child) {
+  margin-right: 3rem;
+}
+
+.header__links ul li a {
+  text-decoration: none;
+  text-rendering: geometricPrecision;
+  position: relative;
+  display: block;
+  line-height: 40px;
+  color: black;
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  transition: -webkit-transform 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), -webkit-transform 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  -webkit-transform-origin: 50% 30%;
+          transform-origin: 50% 30%;
+}
+
+.header__links ul li a:hover {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+}
+
 button,
 .button {
   padding: 0.875rem 2.1875rem;
-  font-family: "Varela Round", sans-serif;
-  font-weight: 400;
-  background: #34a1ea;
+  font-family: "syneextrabold";
+  background: black;
   border-radius: 50px;
   border-color: #4c4c4c;
   border-width: thin;
-  color: black !important;
+  color: #dbdbdb !important;
   cursor: pointer;
 }
 
@@ -276,11 +363,11 @@ button,
 }
 
 .panel__btn a {
-  font-family: 'syneextrabold';
+  font-family: "syneextrabold";
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-  color: #FFF;
+  color: #fff;
   text-decoration: none;
   height: 100%;
   padding: 5%;
@@ -979,33 +1066,5 @@ li {
   margin: 0 auto;
   -ms-grid-columns: 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr;
       grid-template-columns: 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr 0.1111fr;
-}
-
-@-webkit-keyframes fade-in {
-  from {
-    display: non;
-  }
-  1% {
-    display: block;
-    opacity: 0;
-  }
-  to {
-    display: block;
-    opacity: 1;
-  }
-}
-
-@keyframes fade-in {
-  from {
-    display: non;
-  }
-  1% {
-    display: block;
-    opacity: 0;
-  }
-  to {
-    display: block;
-    opacity: 1;
-  }
 }
 /*# sourceMappingURL=style.css.map */
