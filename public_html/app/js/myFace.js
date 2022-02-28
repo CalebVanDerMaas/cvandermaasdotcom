@@ -33,8 +33,11 @@ var ambientLight = new THREE.AmbientLight(0xFFFFFF);
 scene.add(ambientLight);
 
 var light = new THREE.PointLight(0xFFFFFF, 1, 1000)
-light.position.set(0,0,21);
+light.position.set(0,.4,23);
 scene.add(light);
+
+var faceLight = new THREE.PointLight(0xFFFFFF, 3)
+var faceLight2 = new THREE.PointLight(0xFFFFFF, .5)
 
 var myFace;
 
@@ -52,6 +55,18 @@ loader.load(
 
         myFace = gltf.scene;
 
+		myFace.add(faceLight);
+		myFace.add(faceLight2)
+
+		faceLight.position.z = 2.75;
+		faceLight.position.y = 0;
+		faceLight.position.x = -2.5;
+
+		faceLight2.position.z = 2.75;
+		faceLight2.position.y = 0;
+		faceLight2.position.x = 2.5;
+		
+
 		gltf.animations; // Array<THREE.AnimationClip>
 		gltf.scene; // THREE.Group
 		gltf.scenes; // Array<THREE.Group>
@@ -60,8 +75,8 @@ loader.load(
 
 
         myFace.position.x = 0;
-        myFace.position.y = 0;
-        myFace.position.z = 19;
+        myFace.position.y = .5;
+        myFace.position.z = 21;
 
 	},
 	// called while loading is progressing
