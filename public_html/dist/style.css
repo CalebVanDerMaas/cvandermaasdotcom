@@ -26,54 +26,6 @@
   }
 }
 
-@-webkit-keyframes bubbleLinksOpen {
-  from {
-    font-size: 1.125rem;
-  }
-  30% {
-    font-size: 0.875rem;
-  }
-  40% {
-    font-size: 1.125rem;
-  }
-  50% {
-    font-size: 0.875rem;
-  }
-  65% {
-    font-size: 1.125rem;
-  }
-  75% {
-    font-size: 0.875rem;
-  }
-  to {
-    font-size: 1.125rem;
-  }
-}
-
-@keyframes bubbleLinksOpen {
-  from {
-    font-size: 1.125rem;
-  }
-  30% {
-    font-size: 0.875rem;
-  }
-  40% {
-    font-size: 1.125rem;
-  }
-  50% {
-    font-size: 0.875rem;
-  }
-  65% {
-    font-size: 1.125rem;
-  }
-  75% {
-    font-size: 0.875rem;
-  }
-  to {
-    font-size: 1.125rem;
-  }
-}
-
 html {
   font-size: 100%;
   -webkit-box-sizing: border-box;

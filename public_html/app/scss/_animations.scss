@@ -13,27 +13,3 @@
     opacity: 1;
   }
 }
-
-@keyframes bubbleLinksOpen {
-  from {
-    font-size: $font-med;
-  }
-  30% {
-    font-size: $font-sm;
-  }
-  40% {
-    font-size: $font-med;;
-  }
-  50% {
-    font-size: $font-sm;
-  }
-  65% {
-    font-size: $font-med;;
-  }
-  75% {
-    font-size: $font-sm;
-  }
-  to {
-    font-size: $font-med;;
-  }
-}
