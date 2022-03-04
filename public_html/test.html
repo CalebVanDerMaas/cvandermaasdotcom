@@ -104,9 +104,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       let gl = null;
       let renderer = null;
       let scene = new Scene();
-      let solarSystem = new Gltf2Node({url: 'media/gltf/space/space.gltf'});
+      let solarSystem = new Gltf2Node({url: 'images/myFace.glb'});
       scene.addNode(solarSystem);
-      scene.addNode(new SkyboxNode({url: 'media/textures/milky-way-4k.png'}));
+      scene.addNode(new SkyboxNode({url: 'media/textures/sky-bg-4k.png'}));
 
       function initXR() {
         xrButton = new WebXRButton({

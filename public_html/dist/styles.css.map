@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,+EAA+E;AAE/E,AAAA,IAAI;AACJ,IAAI,CAAC;EACH,MAAM,EAAE,IAAI;EACZ,MAAM,EAAE,CAAC;CACV;;AACD,AAAA,IAAI,CAAC;EACH,MAAM,EAAE,CAAC;EACT,WAAW,EAAE,oCAAoC;CAClD",
+    "sources": [
+        "../ng-blog/src/styles.scss"
+    ],
+    "names": [],
+    "file": "styles.css"
+}

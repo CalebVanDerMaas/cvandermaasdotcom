@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAC;EACJ,SAAS,EAAE,KAAK;EAChB,MAAM,EAAE,QAAQ;CACnB;;AAED,AAAA,cAAc,CAAC;EACX,KAAK,EAAE,IAAI;CACd;;AAED,AAAA,KAAK,CAAC;EACF,KAAK,EAAE,IAAI;CACd",
+    "sources": [
+        "../ng-blog/src/app/posts/post-dashboard/post-dashboard.component.scss"
+    ],
+    "names": [],
+    "file": "post-dashboard.component.css"
+}
