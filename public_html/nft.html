@@ -1,49 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/dist/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/style.css" />
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js" integrity="sha512-YX+5mBHKLveyv08xGD1CKyccEPSjymJCsfq/MX8rVqOTJOqLczEYMUnxER5xBTu4wuT/5CrWZEwz8f8UlVso/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="app/js/card.js"></script>
-        <title>NFTS</title>
-    </head>
-    <body>
-        <div id="live-bg" class="video-bg"></div>
-        <script>
-            VANTA.FOG({
-            el: document.getElementById('live-bg'),
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            highlightColor: 0x34A1EA,
-            midtoneColor: 0x40779B,
-            lowlightColor: 0x4C4C4C,
-            baseColor: 0xdbdbdb,
-            blurFactor: 0.76,
-            speed: 1.5
-            })
-        </script>
-      
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"
+      integrity="sha512-YX+5mBHKLveyv08xGD1CKyccEPSjymJCsfq/MX8rVqOTJOqLczEYMUnxER5xBTu4wuT/5CrWZEwz8f8UlVso/Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    ></script>
+    <script src="app/js/card.js"></script>
+    <title>NFTS</title>
+  </head>
+  <body>
+    <div id="live-bg" class="video-bg"></div>
+    <script>
+      VANTA.FOG({
+        el: document.getElementById("live-bg"),
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        highlightColor: 0x34a1ea,
+        midtoneColor: 0x40779b,
+        lowlightColor: 0x4c4c4c,
+        baseColor: 0xdbdbdb,
+        blurFactor: 0.76,
+        speed: 1.5,
+      });
+    </script>
+
     <div id="card-holder">
-        <section class="cards">
-        <div class="card sheep animated "></div>
-        <div class="charizard card animated "></div>
-        </section>
+      <section class="cards">
+        <div class="card sheep animated"></div>
+        <div class="charizard card animated"></div>
+      </section>
     </div>
 
-    
-        <style class="hover">
-        </style>
+    <style class="hover"></style>
     <div class="nft_header flex flex-jc-sb flex-ai-c">
-        <a id="nft-home" href="index.html">Home</a>
+      <a id="nft-home" href="index.html">Home</a>
     </div>
-        
- 
-    </body>
+  </body>
 </html>

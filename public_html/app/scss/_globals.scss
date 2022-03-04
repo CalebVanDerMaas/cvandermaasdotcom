@@ -10,12 +10,11 @@ html {
 }
 
 @font-face {
-  font-family: 'syneextrabold';
-  src: url('../fonts/syne-extrabold-webfont.woff2') format('woff2'),
-       url('../fonts/syne-extrabold-webfont.woff') format('woff');
+  font-family: "syneextrabold";
+  src: url("../fonts/syne-extrabold-webfont.woff2") format("woff2"),
+    url("../fonts/syne-extrabold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-
 }
 body {
   margin: 0;
@@ -31,7 +30,7 @@ body {
 a,
 a:visited,
 a:hover {
-  font-family: 'syneextrabold';
+  font-family: "syneextrabold";
   text-decoration: none;
   color: black;
 }

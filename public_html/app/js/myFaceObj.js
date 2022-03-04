@@ -1,61 +1,64 @@
-import './style.css'
+import "./style.css";
 
-import * as THREE from 'three';
+import * as THREE from "three";
 
-import { OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(
+  75,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
 
 const renderer = new THREE.WebGLRenderer({
-  canvas: document.querySelector('#bg'),
-
+  canvas: document.querySelector("#bg"),
 });
 
-renderer.setPixelRatio( window.devicePixelRatio);
-renderer.setSize( window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30);
 
-renderer.render( scene, camera ); 
+renderer.render(scene, camera);
 
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshStandardMaterial( { color: 0xFF6347 } );
-const torus = new THREE.Mesh( geometry, material );
+const material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
+const torus = new THREE.Mesh(geometry, material);
 
 scene.add(torus);
 
-const pointLight = new THREE.PointLight(0xFFFFFF);
+const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(5, 5, 5);
 
 const ambientLight = new THREE.AmbientLight(0xffffff);
-scene.add(pointLight, ambientLight)
+scene.add(pointLight, ambientLight);
 
 const lightHelper = new THREE.PointLightHelper(pointLight);
 const gridHelper = new THREE.GridHelper(200, 50);
 scene.add(lightHelper, gridHelper);
 
-const controls = new OrbitControls(camera, renderer.domElement)
+const controls = new OrbitControls(camera, renderer.domElement);
 
-const spaceTexture = new THREE.TextureLoader().load('space.jpg')
+const spaceTexture = new THREE.TextureLoader().load("space.jpg");
 scene.background = spaceTexture;
 
-const earthTexture = new THREE.TextureLoader().load('earth.jpg');
-const earthNormalTexture = new THREE.TextureLoader().load('earth_normal.jpg');
+const earthTexture = new THREE.TextureLoader().load("earth.jpg");
+const earthNormalTexture = new THREE.TextureLoader().load("earth_normal.jpg");
 
 const earth = new THREE.Mesh(
   new THREE.SphereGeometry(15, 64, 64),
-  new THREE.MeshStandardMaterial( {
-    map: earthTexture, 
-    normalMap: earthNormalTexture
+  new THREE.MeshStandardMaterial({
+    map: earthTexture,
+    normalMap: earthNormalTexture,
   })
 );
 
 scene.add(earth);
 
-
 function animate() {
-  requestAnimationFrame (animate);
+  requestAnimationFrame(animate);
 
   torus.rotation.x += 0.01;
   torus.rotation.y += 0.005;

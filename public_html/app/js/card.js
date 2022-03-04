@@ -10,83 +10,82 @@ var x;
 var $cards = $(".card");
 var $style = $(".hover");
 
-function newHTML (value) {
+function newHTML(value) {
   var elem = this[0] || {};
 
   if (value === undefined) {
-      return /* HTML string */;
+    return /* HTML string */;
   }
-  if (typeof value === "string" ) {
-      //Use `cleanData` and `innerHTML`
-      elem = 0;
+  if (typeof value === "string") {
+    //Use `cleanData` and `innerHTML`
+    elem = 0;
   }
   if (elem) {
-      this.empty().append(value);
+    this.empty().append(value);
   }
 }
 
 function cardMovement(e) {
-    
-    // normalise touch/mouse
-    var pos = [e.offsetX,e.offsetY];
-    e.preventDefault();
-    
-    if ( e.type === "touchmove" ) {
-      pos = [ e.touches[0].clientX, e.touches[0].clientY ];
-    }
-    var $card = $(this);
-    // math for mouse position
-    var l = pos[0];
-    var t = pos[1];
-    var h = $card.height();
-    var w = $card.width();
-    var px = Math.abs(Math.floor(100 / w * l)-100);
-    var py = Math.abs(Math.floor(100 / h * t)-100);
-    var pa = (50-px)+(50-py);
-    // math for gradient / background positions
-    var lp = (50+(px - 50)/1.5);
-    var tp = (50+(py - 50)/1.5);
-    var px_spark = (50+(px - 50)/7);
-    var py_spark = (50+(py - 50)/7);
-    var p_opc = 20+(Math.abs(pa)*1.5);
-    var ty = ((tp - 50)/2) * -1;
-    var tx = ((lp - 50)/1.5) * .5;
-    // css to apply for active card
-    var grad_pos = `background-position: ${lp}% ${tp}%;`
-    var sprk_pos = `background-position: ${px_spark}% ${py_spark}%;`
-    var opc = `opacity: ${p_opc/100};`
-    var tf = `transform: rotateX(${ty}deg) rotateY(${tx}deg)`
-    // need to use a <style> tag for psuedo elements
-    var style = `
+  // normalise touch/mouse
+  var pos = [e.offsetX, e.offsetY];
+  e.preventDefault();
+
+  if (e.type === "touchmove") {
+    pos = [e.touches[0].clientX, e.touches[0].clientY];
+  }
+  var $card = $(this);
+  // math for mouse position
+  var l = pos[0];
+  var t = pos[1];
+  var h = $card.height();
+  var w = $card.width();
+  var px = Math.abs(Math.floor((100 / w) * l) - 100);
+  var py = Math.abs(Math.floor((100 / h) * t) - 100);
+  var pa = 50 - px + (50 - py);
+  // math for gradient / background positions
+  var lp = 50 + (px - 50) / 1.5;
+  var tp = 50 + (py - 50) / 1.5;
+  var px_spark = 50 + (px - 50) / 7;
+  var py_spark = 50 + (py - 50) / 7;
+  var p_opc = 20 + Math.abs(pa) * 1.5;
+  var ty = ((tp - 50) / 2) * -1;
+  var tx = ((lp - 50) / 1.5) * 0.5;
+  // css to apply for active card
+  var grad_pos = `background-position: ${lp}% ${tp}%;`;
+  var sprk_pos = `background-position: ${px_spark}% ${py_spark}%;`;
+  var opc = `opacity: ${p_opc / 100};`;
+  var tf = `transform: rotateX(${ty}deg) rotateY(${tx}deg)`;
+  // need to use a <style> tag for psuedo elements
+  var style = `
       .card:hover:before { ${grad_pos} }  /* gradient */
       .card:hover:after { ${sprk_pos} ${opc} }   /* sparkles */ 
-    `
-    // set / apply css class and style
-    $cards.removeClass("active");
-    $card.removeClass("animated");
-    $card.attr( "style", tf );
-    $(".hover").empty().append(style);
-    // $style.innerHTML = style;
-    // $style.prop('innerHTML', style);
-    // $style.empty().append(style);
+    `;
+  // set / apply css class and style
+  $cards.removeClass("active");
+  $card.removeClass("animated");
+  $card.attr("style", tf);
+  $(".hover").empty().append(style);
+  // $style.innerHTML = style;
+  // $style.prop('innerHTML', style);
+  // $style.empty().append(style);
 
-    if ( e.type === "touchmove" ) {
-      return false; 
-    }
-    clearTimeout(x);
-
+  if (e.type === "touchmove") {
+    return false;
+  }
+  clearTimeout(x);
 }
 
-function cardWiggle(){
-    var $card = $(this);
-        $style.html("");
-        $card.removeAttr("style");
-        x = setTimeout(function() {
-          $card.addClass("animated");
-        },2500);
+function cardWiggle() {
+  var $card = $(this);
+  $style.html("");
+  $card.removeAttr("style");
+  x = setTimeout(function () {
+    $card.addClass("animated");
+  }, 2500);
 }
 
-$(document).ready(function() {
-    $(".card").on("mousemove touchmove", {}, cardMovement)
-    .on("mouseout touchend touchcancel", {}, cardWiggle); 
+$(document).ready(function () {
+  $(".card")
+    .on("mousemove touchmove", {}, cardMovement)
+    .on("mouseout touchend touchcancel", {}, cardWiggle);
 });
