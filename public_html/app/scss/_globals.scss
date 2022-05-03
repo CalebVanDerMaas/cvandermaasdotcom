@@ -108,3 +108,34 @@ p {
   background-clip: text;
   -webkit-background-clip: text;
 }
+
+#container {
+  height:35px; 
+  position:relative; 
+  overflow:hidden;
+  margin-top: 20px;
+}
+
+.photobanner {
+  position:absolute; 
+  top:0px; 
+  left:0px; 
+  overflow:hidden; 
+  white-space: nowrap;
+  animation: bannermove 30s linear infinite;
+}
+
+.photobanner img { 
+  height: 35px;   
+  margin: 0 0;
+}
+
+@keyframes bannermove {
+  0% {
+      transform: translate(0, 0);
+  }
+  100% {
+      transform: translate(-50%, 0);
+  }
+}
+

@@ -5,18 +5,21 @@ var nav = document.getElementById("top-nav").getBoundingClientRect();
 
 var navHeight = nav.height;
 
+var windowHeight = (window.innerHeight) - 
+navHeight - 100; 
+
 var scene = new THREE.Scene();
 
 var camera = new THREE.PerspectiveCamera(
   75,
-  window.innerWidth / (window.innerHeight - navHeight),
+  window.innerWidth / (windowHeight),
   0.1,
   1000
 );
 camera.position.z = 25;
 
 var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-renderer.setSize(window.innerWidth, window.innerHeight - navHeight);
+renderer.setSize(window.innerWidth, windowHeight);
 
 document.body.appendChild(renderer.domElement);
 
@@ -24,8 +27,8 @@ window.addEventListener("resize", () => {
   nav = document.getElementById("top-nav").getBoundingClientRect();
   navHeight = nav.height;
 
-  renderer.setSize(window.innerWidth, window.innerHeight - navHeight);
-  camera.aspect = window.innerWidth / (window.innerHeight - navHeight);
+  renderer.setSize(window.innerWidth, windowHeight);
+  camera.aspect = window.innerWidth / (windowHeight);
 
   camera.updateProjectionMatrix();
 });
