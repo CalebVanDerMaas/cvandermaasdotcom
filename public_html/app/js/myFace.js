@@ -95,8 +95,34 @@ loader.load(
 
 var render = function () {
   requestAnimationFrame(render);
+  document.onmousemove = handleMouseMove;
+  function handleMouseMove(event){
+    var eventDoc, doc, body;
 
-  myFace.rotation.y -= 0.01;
+    event = event || window.event;
+
+    // If pageX/Y aren't available and clientX/Y are,
+        // calculate pageX/Y - logic taken from jQuery.
+        // (This is to support old IE)
+        if (event.pageX == null && event.clientX != null) {
+          eventDoc = (event.target && event.target.ownerDocument) || document;
+          doc = eventDoc.documentElement;
+          body = eventDoc.body;
+
+          event.pageX = event.clientX +
+              (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+              (doc && doc.clientLeft || body && body.clientLeft || 0);
+            event.pageY = event.clientY +
+              (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
+              (doc && doc.clientTop  || body && body.clientTop  || 0 );
+        }
+        
+        myFace.rotation.y = 2*(event.pageX/window.innerWidth) - 1;
+        myFace.rotation.x = 2*(event.pageY/window.innerHeight) - 1;
+
+  }
+  // myFace.rotation.y -= 0.1;
+  
 
   renderer.render(scene, camera);
 };
