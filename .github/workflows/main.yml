@@ -11,7 +11,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
       with:
-        server: calebvandermaas.com
-        username: vandermaasc@calebvandermaas.com
+        server: ftp.calebvandermaas.com
+        username: github@calebvandermaas.com
         password: ${{ secrets.FTP_DEPLOY_SECRET }}
         server-dir: /calebvandermaas.com/
