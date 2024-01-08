@@ -94,6 +94,14 @@
       <script type="module" src="app/js/myFace.js"></script>
     </div>
     <footer class="wrapper footer">
+      <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/style.css" rel="stylesheet" />
+      <script type="module">
+      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/chat.bundle.es.js';
+
+      createChat({
+        webhookUrl: 'https://vandermaasc-home-automation-39ee615d9fee.herokuapp.com/webhook'
+      });
+      </script>
       <ul>
         <li>
           <a
