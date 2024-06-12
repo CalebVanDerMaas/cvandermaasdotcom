@@ -1,0 +1,19 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-size: 16px;
+}
+
+.image-container {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+}
+
+.image-container img {
+    width: 10rem;
+    height: auto;  /* Use static size as per your requirement */
+}
