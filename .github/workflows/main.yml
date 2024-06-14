@@ -14,4 +14,4 @@ jobs:
         server: ftp.calebvandermaas.com
         username: github@calebvandermaas.com
         password: ${{ secrets.FTP_DEPLOY_SECRET }}
-        server-dir: /calebvandermaas.com/
+        local-dir: public_html
