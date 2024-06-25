@@ -5,7 +5,7 @@ var nav = document.getElementById("top-nav").getBoundingClientRect();
 
 var navHeight = nav.height;
 
-var windowHeight = (window.innerHeight) - navHeight ; 
+var windowHeight = (window.innerHeight) - navHeight - 70 ; 
 
 var scene = new THREE.Scene();
 
@@ -25,7 +25,7 @@ document.body.appendChild(renderer.domElement);
 window.addEventListener("resize", () => {
   nav = document.getElementById("top-nav").getBoundingClientRect();
   navHeight = nav.height;
-  windowHeight = (window.innerHeight) - navHeight; 
+  windowHeight = (window.innerHeight) - navHeight - 70; 
   renderer.setSize(window.innerWidth, windowHeight);
   camera.aspect = window.innerWidth / (windowHeight);
   camera.updateProjectionMatrix();
