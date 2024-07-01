@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Mouse Tracking</title>
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+    <style>
+        .cursor {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Live Mouse Tracking</h1>
+    <script>
+        const pusher = new Pusher('ccdfa7d9212908eda9ba', {
+            cluster: 'us2',
+            authEndpoint: 'pusher_auth.php'
+        });
+        const channel = pusher.subscribe('private-mouse-channel');
+
+        const cursors = {};
+        const clientId = Math.random().toString(36).substr(2, 9);
+
+        channel.bind('pusher:subscription_succeeded', function() {
+            document.addEventListener('mousemove', (e) => {
+                const data = {
+                    x: e.clientX,
+                    y: e.clientY,
+                    id: clientId
+                };
+                channel.trigger('client-mouse-move', data);
+            });
+        });
+
+        channel.bind('client-mouse-move', function(data) {
+            if (data.id !== clientId) {
+                if (!cursors[data.id]) {
+                    cursors[data.id] = document.createElement('div');
+                    cursors[data.id].className = 'cursor';
+                    document.body.appendChild(cursors[data.id]);
+                }
+                cursors[data.id].style.left = data.x + 'px';
+                cursors[data.id].style.top = data.y + 'px';
+            }
+        });
+    </script>
+</body>
+</html>
