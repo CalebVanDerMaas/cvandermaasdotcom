@@ -50,7 +50,7 @@ loader.setDRACOLoader(dracoLoader);
 
 const loadingSpinner = document.getElementById('lds-hourglass');
 loader.load(
-  "https://my-face.s3.amazonaws.com/myFace-draco.glb"
+  "images/myFace-draco.glb"
 ,
   (gltf) => {
     myFace = gltf.scene;
