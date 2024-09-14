@@ -1,127 +1,96 @@
 import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+import { DRACOLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/DRACOLoader.js";
 
-var nav = document.getElementById("top-nav").getBoundingClientRect();
+let nav = document.getElementById("top-nav").getBoundingClientRect();
+let navHeight = nav.height;
+let windowHeight = window.innerHeight - navHeight - 70;
 
-var navHeight = nav.height;
+let scene = new THREE.Scene();
 
-var windowHeight = (window.innerHeight) - navHeight - 70 ; 
-
-var scene = new THREE.Scene();
-
-var camera = new THREE.PerspectiveCamera(
+let camera = new THREE.PerspectiveCamera(
   75,
-  window.innerWidth / (windowHeight),
+  window.innerWidth / windowHeight,
   0.1,
   1000
 );
 camera.position.z = 25;
 
-var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+let renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, windowHeight);
-
 document.body.appendChild(renderer.domElement);
 
 window.addEventListener("resize", () => {
   nav = document.getElementById("top-nav").getBoundingClientRect();
   navHeight = nav.height;
-  windowHeight = (window.innerHeight) - navHeight - 70; 
+  windowHeight = window.innerHeight - navHeight - 70;
   renderer.setSize(window.innerWidth, windowHeight);
-  camera.aspect = window.innerWidth / (windowHeight);
+  camera.aspect = window.innerWidth / windowHeight;
   camera.updateProjectionMatrix();
 });
 
-var faceLight = new THREE.PointLight(0xffffff, 1, 1000);
-faceLight.position.set(0, 0, 21);
-scene.add(faceLight);
-
-var ambientLight = new THREE.AmbientLight(0xffffff);
+// Lighting Setup
+const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(ambientLight);
 
-var light = new THREE.PointLight(0xffffff, 1, 1000);
-light.position.set(0, 0.4, 23);
-scene.add(light);
+const pointLight = new THREE.PointLight(0xffffff, 1, 1000);
+pointLight.position.set(0, 0.4, 23);
+scene.add(pointLight);
 
-var faceLight = new THREE.PointLight(0xffffff, 3);
-var faceLight2 = new THREE.PointLight(0xffffff, 0.5);
+// GLTF Model Setup
+let faceLight = new THREE.PointLight(0xffffff, 3);
+let faceLight2 = new THREE.PointLight(0xffffff, 0.5);
+let myFace;
 
-var myFace;
-
-// Instantiate a loader
 const loader = new GLTFLoader();
 
-// Load a glTF resource
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath('https://cdn.jsdelivr.net/gh/mrdoob/three.js@r129/examples/js/libs/draco/'); // Correct path to Draco decoder files
+loader.setDRACOLoader(dracoLoader);
+
+const loadingSpinner = document.getElementById('lds-hourglass');
 loader.load(
-  // resource URL
-  "images/myFace.glb",
-  // called when the resource is loaded
-  function (gltf) {
-    scene.add(gltf.scene);
-
+  "https://my-face.s3.amazonaws.com/myFace-draco.glb"
+,
+  (gltf) => {
     myFace = gltf.scene;
+    myFace.add(faceLight, faceLight2);
 
-    myFace.add(faceLight);
-    myFace.add(faceLight2);
+    faceLight.position.set(-2.5, 0, 2.75);
+    faceLight2.position.set(2.5, 0, 2.75);
 
-    faceLight.position.z = 2.75;
-    faceLight.position.y = 0;
-    faceLight.position.x = -2.5;
-
-    faceLight2.position.z = 2.75;
-    faceLight2.position.y = 0;
-    faceLight2.position.x = 2.5;
-
-    gltf.animations; // Array<THREE.AnimationClip>
-    gltf.scene; // THREE.Group
-    gltf.scenes; // Array<THREE.Group>
-    gltf.cameras; // Array<THREE.Camera>
-    gltf.asset; // Object
-
-    myFace.position.x = 0;
-    myFace.position.y = 0.5;
-    myFace.position.z = 21;
+    myFace.position.set(0, 0.5, 21);
+    scene.add(myFace);
+    loadingSpinner.style.display = 'none';
   },
-  // called while loading is progressing
-  function (xhr) {
-    console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
-  },
-  // called when loading has errors
-  function (error) {
-    console.log("An error happened");
+  // (xhr) => console.log((xhr.loaded / xhr.total) * 100 + "% loaded"),
+  (error) => {
+    console.log("An error happened:", error);
+    loadingSpinner.style.display = 'none';
   }
+  
 );
 
-var render = function () {
-  requestAnimationFrame(render);
-  document.onmousemove = handleMouseMove;
-  function handleMouseMove(event){
-    var eventDoc, doc, body;
+// Mouse Movement Handler
+let lastMove = 0;
+const handleMouseMove = (event) => {
+  if (Date.now() - lastMove < 16) return; // 60 FPS throttle
+  lastMove = Date.now();
 
-    event = event || window.event;
+  const { pageX, pageY } = event;
+  const xRotation = (2 * pageX) / window.innerWidth - 1;
+  const yRotation = (2 * pageY) / window.innerHeight - 1;
 
-    // If pageX/Y aren't available and clientX/Y are,
-        // calculate pageX/Y - logic taken from jQuery.
-        // (This is to support old IE)
-        if (event.pageX == null && event.clientX != null) {
-          eventDoc = (event.target && event.target.ownerDocument) || document;
-          doc = eventDoc.documentElement;
-          body = eventDoc.body;
-
-          event.pageX = event.clientX +
-              (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
-              (doc && doc.clientLeft || body && body.clientLeft || 0);
-            event.pageY = event.clientY +
-              (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
-              (doc && doc.clientTop  || body && body.clientTop  || 0 );
-        }
-        
-        myFace.rotation.y = 2*(event.pageX/window.innerWidth) - 1;
-        myFace.rotation.x = 2*(event.pageY/window.innerHeight) - 1;
-
+  if (myFace) {
+    myFace.rotation.y = xRotation;
+    myFace.rotation.x = yRotation;
   }
-  // myFace.rotation.y -= 0.1;
-  
+};
 
+document.addEventListener("mousemove", handleMouseMove);
+
+const render = function () {
+  requestAnimationFrame(render);
   renderer.render(scene, camera);
 };
 
